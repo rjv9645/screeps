@@ -3,9 +3,10 @@ require('behaviour3js');
 var CreepBoard = require('behaviour3js.CreepBoard');
 var bTree = require('role.harvester');
 var baseID = bTree.id;
+
+require('controller.createCustomCreep')();
 var spawner = require('controller.spawner');
 
-console.log("------------------NEW GLOBAL---------------------------");
 module.exports.loop = function () {
     
     
@@ -24,5 +25,5 @@ module.exports.loop = function () {
         bTree.tick(c,blackboard);
     }
     
-    //spawner.run();
+    spawner.run();
 };
