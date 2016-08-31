@@ -28,10 +28,7 @@ FindSource.prototype.open = function(tick) {
 FindSource.prototype.tick = function(tick) {
     var currTime = (new Date()).getTime();
     var startTime = tick.blackboard.get('startTime', tick.tree.id, this.id);
-    if(Game.creeps.length <= 0){
-        console.log("No creeps");
-        return b3.FAILURE;
-    }
+
     tick.target.memory.sourceID = tick.target.pos.findClosestByPath(FIND_SOURCES).id;
     console.log("Found source: "+tick.target.memory.sourceID);
     return b3.SUCCESS;

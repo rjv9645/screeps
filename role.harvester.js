@@ -3,6 +3,7 @@ var roleBehaviour = {};
 roleBehaviour['FindSource'] = require('behaviour.findSource');
 roleBehaviour['Harvest'] = require('behaviour.harvest');
 roleBehaviour['StoreResources'] = require('behaviour.storeResources');
+roleBehaviour['Upgrade'] = require('behaviour.upgrade');
 
 var behaviourTree = new b3.BehaviorTree();
 behaviourTree.load({
@@ -10,11 +11,11 @@ behaviourTree.load({
     "description": "",
     "root": "ea489313-13ca-4c00-8190-ddd363222d8b",
     "display": {
-        "camera_x": 1178,
-        "camera_y": 492.5,
-        "camera_z": 1,
-        "x": -576,
-        "y": -176
+        "camera_x": 577,
+        "camera_y": 377.5,
+        "camera_z": 1.25,
+        "x": 0,
+        "y": 0
     },
     "properties": {},
     "nodes": {
@@ -24,15 +25,15 @@ behaviourTree.load({
             "title": "Harvest Sequence",
             "description": "",
             "display": {
-                "x": -368,
-                "y": -176
+                "x": 208,
+                "y": 0
             },
             "parameters": {},
             "properties": {},
             "children": [
                 "0dbc2fbb-07fd-430d-8081-dbf3718e28db",
                 "ff6435ae-45fb-432c-8701-188529f23b73",
-                "851cb979-c2f7-495f-8020-8a43cd5923c2"
+                "2ed4b0d5-8fcd-44bf-8881-742af5c960cc"
             ]
         },
         "0dbc2fbb-07fd-430d-8081-dbf3718e28db": {
@@ -41,8 +42,8 @@ behaviourTree.load({
             "title": "Find Source",
             "description": "",
             "display": {
-                "x": -160,
-                "y": -240
+                "x": 416,
+                "y": -74.66666666666666
             },
             "parameters": {},
             "properties": {}
@@ -53,20 +54,48 @@ behaviourTree.load({
             "title": "Harvest",
             "description": "",
             "display": {
-                "x": -160,
-                "y": -176
+                "x": 416,
+                "y": -10.666666666666657
             },
             "parameters": {},
             "properties": {}
         },
-        "851cb979-c2f7-495f-8020-8a43cd5923c2": {
-            "id": "851cb979-c2f7-495f-8020-8a43cd5923c2",
+        "2ed4b0d5-8fcd-44bf-8881-742af5c960cc": {
+            "id": "2ed4b0d5-8fcd-44bf-8881-742af5c960cc",
+            "name": "Priority",
+            "title": "Priority",
+            "description": "",
+            "display": {
+                "x": 416,
+                "y": 85.33333333333334
+            },
+            "parameters": {},
+            "properties": {},
+            "children": [
+                "a1b5727d-83f5-4757-84f3-c96eca8001cb",
+                "c0f8fe48-b12c-4809-8f5b-dfe761c2a47f"
+            ]
+        },
+        "a1b5727d-83f5-4757-84f3-c96eca8001cb": {
+            "id": "a1b5727d-83f5-4757-84f3-c96eca8001cb",
             "name": "StoreResources",
             "title": "Store Resources",
             "description": "",
             "display": {
-                "x": -160,
-                "y": -112
+                "x": 624,
+                "y": 53.33333333333334
+            },
+            "parameters": {},
+            "properties": {}
+        },
+        "c0f8fe48-b12c-4809-8f5b-dfe761c2a47f": {
+            "id": "c0f8fe48-b12c-4809-8f5b-dfe761c2a47f",
+            "name": "Upgrade",
+            "title": "Upgrade",
+            "description": "",
+            "display": {
+                "x": 624,
+                "y": 117.33333333333334
             },
             "parameters": {},
             "properties": {}
@@ -96,6 +125,16 @@ behaviourTree.load({
         {
             "name": "StoreResources",
             "title": "Store Resources",
+            "category": "action"
+        },
+        {
+            "name": "NoEnergy",
+            "title": "No Energy",
+            "category": "condition"
+        },
+        {
+            "name": "Upgrade",
+            "title": "Upgrade",
             "category": "action"
         }
     ]

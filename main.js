@@ -1,9 +1,11 @@
 // import modules
 require('behaviour3js');
+var CreepBoard = require('behaviour3js.CreepBoard');
 var bTree = require('role.harvester');
+var baseID = bTree.id;
 var spawner = require('controller.spawner');
-var blackboards = {};
 
+console.log("------------------NEW GLOBAL---------------------------");
 module.exports.loop = function () {
     
     
@@ -13,20 +15,14 @@ module.exports.loop = function () {
         if (Game.creeps[name] == undefined) {
             // if not, delete the memory entry
             delete Memory.creeps[name];
-			delete blackboards[name];
         }
     }
-    
+    var blackboard = new CreepBoard();
     for(let name in Game.creeps){
         var c = Game.creeps[name];
-        var board = blackboards[name];
-        if(board == null || typeof board == 'undefined'){
-            blackboards[name] = new b3.Blackboard();
-            board = blackboards[name];
-        }
-        
-        bTree.tick(c,board);
+        bTree.id = baseID + c.name;
+        bTree.tick(c,blackboard);
     }
     
-    spawner.run();
+    //spawner.run();
 };
